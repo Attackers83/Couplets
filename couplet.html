@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+ 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>couplet</title>
+</head>
+
+<body>
+  <style>
+	  #contain{
+		  position: absolute;
+		  left: 20%;
+		  top: 50px;
+		  background: url(http://127.0.0.1:9090/1.jpg)no-repeat;
+		  background-size: 100%;
+		  padding-left: 200px;
+		  padding-top: 10px;
+		  width: 800px;
+		  height: 400px;
+	      }
+	  #main{
+		  margin-bottom: 50px;
+		  }
+	  button{
+		  margin-top: 250px;
+		  margin-left: 100px;   
+		  }
+  </style>
+  <form class="bs-example bs-example-form" id="contain" action="">
+  	<h1>人工智能自动对联系统</h1>
+	<div class="input-group">
+		<div class="col-lg-8">
+			<input id="main" type="text" class="form-control input-lg " placeholder="请输入上联">
+			<div class="input-group">
+				<span class="input-group-addon" >上联</span>
+				<input type="text" class="form-control" id="main2">  
+			</div>
+			<br>        
+			<div class="input-group">
+				<span class="input-group-addon" >下联</span>
+				<input type="text" class="form-control"  id="input">   
+			</div>
+		</div>
+		<button class="btn btn-default btn-lg" type="button" id="button">提交</button>
+	</div>
+    <br>
+</form>
+<script>
+    $(document).ready(function () {
+        $('#button').click(function () {
+            var str = $('#main').val();
+            var url = 'http://127.0.0.1:9090/couplet?q=' + str;
+            if (str != '') {
+                $.get(url, function (data){
+                    $('#input').attr('value',data);
+                });
+                $('#main2').attr('value',str);
+            }
+        });
+    });
+</script>
+</body>
+</html>
