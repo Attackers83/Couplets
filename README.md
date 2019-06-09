@@ -72,9 +72,15 @@ cat train.merge.txt.vocab | awk ‘print $1’ > merge.txt.vocab.clean
 ###### 4.	数据训练完成，则在output目录下生成训练数据。
 
 我设置的batch_size为100000，所以最终需要的数据文件为：
+
 model.ckpt-100000.data-00000-of-00003
+
 model.ckpt-100000.data-00001-of-00003
+
 model.ckpt-100000.data-00002-of-00003
+
 model.ckpt-100000.index
+
 model.ckpt-100000.meta
+
 checkpoint
